@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - 'stable'
+deploy: 
+  provider: azure_web_apps
+  site: "codedenver-ivr"       # If AZURE_WA_SITE isn't set
