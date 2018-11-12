@@ -12,11 +12,6 @@ const {mailConfig} = require('../../src/config/config');
  * returns true or false
  */
 function isClosed(config) {
-  // console.log(config.today);
-  // console.log(config.today.getHours());
-  // console.log(convertHourToUTC(config.today,14));
-  // console.log('----------');
-
   //14 = 8 AM maybe, and 23 = 5 PM 
   let today = config.today;
   return (config.debug === true ||
