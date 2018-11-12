@@ -1,6 +1,6 @@
 ''
 const Router = require('express').Router;
-const {preWelcome, welcome, menu, handleClosed, transcribe, hangup, planets} = require('./handler');
+const {preWelcome, welcome, menu, handleClosed, transcribe, hangup} = require('./handler');
 const {optionConfig, sesConfig} = require('../../src/config/config');
 
 const router = new Router();
@@ -36,12 +36,6 @@ router.post('/hangup', (req, res) => {
 router.post('/menu', (req, res) => {
   const digit = req.body.Digits;
   return res.send(menu(digit));
-});
-
-// POST: /ivr/planets
-router.post('/planets', (req, res) => {
-  const digit = req.body.Digits;
-  res.send(planets(digit));
 });
 
 module.exports = router;

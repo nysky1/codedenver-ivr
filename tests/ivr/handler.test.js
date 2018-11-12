@@ -1,4 +1,4 @@
-const {preWelcome, welcome, menu, planets} = require('../../src/ivr/handler');
+const {preWelcome, welcome} = require('../../src/ivr/handler');
 const {optionConfig} = require('../../src/config/config');
 const {convertHourToUTC,convertHoursTo24Hour} = require('../../src/utilities/utilities');
 
@@ -49,63 +49,63 @@ describe('IvrHandler#Welcome', () => {
     expect(count('Redirect')).toBe(2);
   }); 
   it('should serve TwiML with debug = false, isClosed - Sunday', () => {
-    const config = optionConfig(false,new Date("October 14, 2018 00:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 14, 2018 00:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
 
     expect(count('Redirect')).toBe(2);
   });
   it('should serve TwiML with debug = false, isClosed - Saturday', () => {
-    const config = optionConfig(false,new Date("October 13, 2018 00:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 13, 2018 00:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
 
     expect(count('Redirect')).toBe(2);
   });
   it('should serve TwiML with debug = false, isClosed - Friday 2 AM', () => {
-    const config = optionConfig(false,new Date("October 11, 2018 02:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 11, 2018 02:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
 
     expect(count('Redirect')).toBe(2);
   }); 
   it('should serve TwiML with debug = false, isClosed - Friday 5 PM', () => {
-    const config = optionConfig(false,new Date("October 11, 2018 17:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 11, 2018 17:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
 
     expect(count('Redirect')).toBe(2);
   }); 
   it('should serve TwiML with debug = false, isClosed - False Monday 9 AM', () => {
-    const config = optionConfig(false,new Date("October 8, 2018 09:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 8, 2018 09:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
     expect(count('Play')).toBe(2);
     expect(twiml).toContain('opening-1to5.wav');
   });
   it('should serve TwiML with debug = false, isClosed - False Tue 9 AM', () => {
-    const config = optionConfig(false,new Date("October 9, 2018 09:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 9, 2018 09:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
     expect(count('Play')).toBe(2);
     expect(twiml).toContain('opening-1to5.wav');
   });
   it('should serve TwiML with debug = false, isClosed - False Wed 9 AM', () => {
-    const config = optionConfig(false,new Date("October 10, 2018 09:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 10, 2018 09:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
     expect(count('Play')).toBe(2);
     expect(twiml).toContain('opening-1to5.wav');
   });
   it('should serve TwiML with debug = false, isClosed - False Thur 9 AM', () => {
-    const config = optionConfig(false,new Date("October 11, 2018 09:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 11, 2018 09:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
     expect(count('Play')).toBe(2);
     expect(twiml).toContain('opening-1to5.wav');
   });
   it('should serve TwiML with debug = false, isClosed - False Friday 9 AM', () => {
-    const config = optionConfig(false,new Date("October 12, 2018 09:00:00 GMT-0600")); //Month 9 = Oct
+    const config = optionConfig(false,new Date("October 12, 2018 09:00:00 GMT-0600")); 
     const twiml = welcome(config);
     const count = countWord(twiml);
     expect(count('Play')).toBe(2);
