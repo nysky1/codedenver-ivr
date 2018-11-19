@@ -9,7 +9,7 @@ This is an interactive voice response system, also known as a phone tree applica
 <li>ngrok</li>
 </ul>
 <h3>Environment Setup</h3>
-Environment variables needs to be set up to protect your AWS keys. Create a file in the root folder which looks like this below and from a terminal window, type source FILE_NAME:<br/>
+Environment variables needs to be set up to protect your AWS keys. Create a file in the root folder which looks like this below and from a terminal window, type source FILE_NAME:<br/><br/>
 export SES_KEY='YOUR_AWS_KEY'<br/>
 export SES_SECRET='YOUR_AWS_SECRET'<br/>
 export ERROR_EMAIL_ADDR='bob@gmail.com'
